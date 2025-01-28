@@ -7,11 +7,14 @@ const Header = () => {
     return (
         <div>
             <Link to='/'>Home</Link>
-            <span> | </span>
             {user ? (
                 <p onClick={logoutUser}>logout</p>
             ): (
-                <Link to='/login'>Login</Link>
+                <div>
+                    <Link to='/login'>Login</Link>
+                    <span> | </span>
+                    <Link to='/register'>Register</Link>
+                </div>
             )}
             
 
