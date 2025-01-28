@@ -7,7 +7,7 @@ import RegisterPage from './pages/RegisterPage'
 import Header from './components/Header'
 import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
-import Game from './pages/Game'
+import Game from './games/Game'
 
 function App() {
   return (
