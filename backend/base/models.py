@@ -7,6 +7,6 @@ class Profile(models.Model):
     email = models.EmailField(max_length=255, blank=True, null=True)
     name = models.CharField(max_length=255, blank=True, null=True)
     points = models.IntegerField(default=1000)
-
+ 
     def __str__(self):
-        return self.user.username
+        return f"{self.user.username} - Points: {self.points}"

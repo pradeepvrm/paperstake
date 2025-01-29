@@ -8,6 +8,7 @@ import Header from './components/Header'
 import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
 import Game from './games/Game'
+import Leaderboard from './components/LeaderBoard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route element={<PrivateRoute><Game /></PrivateRoute>} path='/game' />
           <Route element={<LoginPage />} path='/login' />
           <Route element={<RegisterPage />} path='/register' />
+          <Route element={<Leaderboard />} path='/leaderboard' />
         </Routes>
         </AuthProvider>
       </Router>

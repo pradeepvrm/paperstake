@@ -69,10 +69,29 @@ export const AuthProvider = ({children}) => {
     
     }
 
+    let updatePoints = async (points) => {
+        let response = await fetch("http://localhost:8000/api/manage-points/", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${authTokens.access}`,
+          },
+          body: JSON.stringify({ points }),
+        });
+        let data = await response.json();
+    
+        if (response.status === 200) {
+          setUser((prevUser) => ({ ...prevUser, points: data.points }));
+        } else {
+          alert("Failed to update points");
+        }
+      }
+
     let contextData = {
         user:user,
         loginUser:loginUser,
         logoutUser:logoutUser,
+        updatePoints:updatePoints,
     }
 
     useEffect(() => {

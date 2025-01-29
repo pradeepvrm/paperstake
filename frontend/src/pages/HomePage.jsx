@@ -1,9 +1,10 @@
 import React from 'react';
+import UpdatePoints from '../components/UpdatePoints';
 
 const HomePage = () => {
     return (
         <div> 
-            <p>You are logged in!</p>
+            <UpdatePoints />
         </div>
     )
 }

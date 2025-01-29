@@ -7,6 +7,9 @@ const Header = () => {
     return (
         <div>
             <Link to='/'>Home</Link>
+            <span> | </span>
+            <Link to='/leaderboard'>Leaderboard</Link>
+            <span> | </span>
             {user ? (
                 <p onClick={logoutUser}>logout</p>
             ): (
