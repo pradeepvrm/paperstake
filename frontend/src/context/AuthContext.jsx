@@ -86,9 +86,22 @@ export const AuthProvider = ({children}) => {
           alert("Failed to update points");
         }
       }
+    
+    let getPoints = async () => {
+        let response = await fetch("http://localhost:8000/api/manage-points/", {
+            method: "GET",
+          headers: {
+            Authorization: `Bearer ${authTokens.access}`,
+          },
+        })
+        let data = await response.json()
+        return data
+    }
+        
 
     let contextData = {
         user:user,
+        getPoints:getPoints,
         loginUser:loginUser,
         logoutUser:logoutUser,
         updatePoints:updatePoints,
@@ -99,7 +112,7 @@ export const AuthProvider = ({children}) => {
             if(authTokens) {
                 updateToken()
             }
-        }, 270000)
+        }, 270000) // 4.5 minutes
         return () => clearInterval(interval)
     }, [authTokens, loading])
     

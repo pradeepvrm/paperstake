@@ -9,7 +9,7 @@ const LoginPage = () => {
             <form onSubmit={loginUser}>
                 <input type='text' name='username' placeholder='username'></input>
                 <input type='password' name='password' placeholder='password'></input>
-                <input type='submit'></input>
+                <input type='submit' value='Login'></input>
             </form>
         </div>
     )

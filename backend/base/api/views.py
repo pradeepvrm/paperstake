@@ -55,8 +55,8 @@ def manage_points(request):
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     elif request.method == 'PATCH':
-        serializer = PointsSerializer(profile, data=request.data, partial=True)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        points_to_add = int(request.data.get('points', 0))
+        profile.points += points_to_add
+        profile.save()
+        serializer = PointsSerializer(profile)
+        return Response(serializer.data, status=status.HTTP_200_OK)
