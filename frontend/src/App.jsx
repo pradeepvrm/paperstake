@@ -9,20 +9,24 @@ import PrivateRoute from './utils/PrivateRoute'
 import { AuthProvider } from './context/AuthContext'
 import Game from './games/Game'
 import Leaderboard from './components/LeaderBoard';
+import LandingPage from './pages/LandingPage';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <AuthProvider>
-        <Header/>
         <Routes>
-          <Route element={<PrivateRoute><HomePage /></PrivateRoute>} path='/' exact />
-          <Route element={<PrivateRoute><Game /></PrivateRoute>} path='/game' />
-          <Route element={<LoginPage />} path='/login' />
-          <Route element={<RegisterPage />} path='/register' />
-          <Route element={<Leaderboard />} path='/leaderboard' />
+          <Route element={<LandingPage />} path='/' />
         </Routes>
+        <AuthProvider>
+        <Header />
+          <Routes>
+            <Route element={<PrivateRoute><HomePage /></PrivateRoute>} path='/home' exact />
+            <Route element={<PrivateRoute><Game /></PrivateRoute>} path='/game' />
+            <Route element={<LoginPage />} path='/login' />
+            <Route element={<RegisterPage />} path='/register' />
+            <Route element={<Leaderboard />} path='/leaderboard' />
+          </Routes>
         </AuthProvider>
       </Router>
     </div>
