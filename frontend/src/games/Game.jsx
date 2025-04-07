@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react"
-import UpdatePoints from "../components/UpdatePoints"
 import AuthContext from "../context/AuthContext"
 
 const Game = () => {

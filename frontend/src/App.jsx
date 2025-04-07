@@ -10,6 +10,7 @@ import { AuthProvider } from './context/AuthContext'
 import Game from './games/Game'
 import Leaderboard from './components/LeaderBoard';
 import LandingPage from './pages/LandingPage';
+import Mines from './games/Mines/Mines';
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Header />
           <Routes>
             <Route element={<PrivateRoute><HomePage /></PrivateRoute>} path='/home' exact />
-            <Route element={<PrivateRoute><Game /></PrivateRoute>} path='/game' />
+            <Route element={<PrivateRoute><Mines /></PrivateRoute>} path='/game' />
             <Route element={<LoginPage />} path='/login' />
             <Route element={<RegisterPage />} path='/register' />
             <Route element={<Leaderboard />} path='/leaderboard' />
