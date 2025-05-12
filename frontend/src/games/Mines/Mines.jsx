@@ -80,7 +80,7 @@ export default function Mines() {
   }
 
   return (
-    <div className='flex gap-10 bg-black h-screen'>
+    <div className='flex gap-10 h-screen'>
       <div className='my-auto mx-40 text-center font-bold text-2xl'>
         <section className='text-yellow-400 my-10'>
         <h1 className='text-6xl'>Mines</h1>

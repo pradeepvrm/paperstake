@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
@@ -14,16 +14,16 @@ const Leaderboard = () => {
   }, []);
 
   return (
-    <div>
-      <h2>Leaderboard</h2>
+    <div className='flex flex-col items-center h-screen'>
+      <h2 className='text-xl m-2'>Leaderboard</h2>
       <ul>
         {leaderboard.map((user, index) => (
-          <li key={index}>
-            {index + 1}. {user.username} - {user.points} points
+          <li className='bg-linear-to-t from-slate-950 to-purple-950 h-10 m-2 w-screen text-center' key={index}>
+            {index + 1}. @{user.username} - {user.points} points
           </li>
         ))}
       </ul>
-    </div>
+    </div>  
   );
 };
 

@@ -35,7 +35,7 @@ const RegisterPage = () => {
             <div className='flex flex-col items-center justify-center md:w-1/2'>
             <h1 className='text-4xl font-bold text-center'>Register</h1>
             <p className='text-sm text-gray-400 my-2'>Create an account to get started</p>
-                <form className='flex flex-col m-2 text-xl' onSubmit={handleSubmit}>
+                <form className='flex flex-col m-2 text-xl w-sm' onSubmit={handleSubmit}>
                     <input
                         className='border border-gray-700 text-center p-1 my-1'
                         type="text"
