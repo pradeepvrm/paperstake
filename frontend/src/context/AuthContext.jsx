@@ -3,6 +3,7 @@ import { createContext, useState, useEffect } from "react";
 import { jwtDecode } from "jwt-decode"
 import { useNavigate } from "react-router-dom"
 
+const apiUrl = import.meta.env.VITE_BACKEND_URL
 const AuthContext = createContext()
 
 export default AuthContext
@@ -18,7 +19,7 @@ export const AuthProvider = ({children}) => {
     let loginUser = async (e ) => {
         e.preventDefault()
 
-        let response = await fetch('http://localhost:8000/api/token/', {
+        let response = await fetch(`${apiUrl}/api/token/`, {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -48,7 +49,7 @@ export const AuthProvider = ({children}) => {
     }
 
     let updateToken = async () => {
-        let response = await fetch('http://localhost:8000/api/token/refresh/', {
+        let response = await fetch(`${apiUrl}/api/token/refresh/`, {
             method:'POST',
             headers:{
                 'Content-Type':'application/json'
@@ -70,7 +71,7 @@ export const AuthProvider = ({children}) => {
     }
 
     let updatePoints = async (points) => {
-        let response = await fetch("http://localhost:8000/api/manage-points/", {
+        let response = await fetch(`${apiUrl}/api/manage-points/`, {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
@@ -88,7 +89,7 @@ export const AuthProvider = ({children}) => {
       }
     
     let getPoints = async () => {
-        let response = await fetch("http://localhost:8000/api/manage-points/", {
+        let response = await fetch(`${apiUrl}/api/manage-points/`, {
             method: "GET",
           headers: {
             Authorization: `Bearer ${authTokens.access}`,
