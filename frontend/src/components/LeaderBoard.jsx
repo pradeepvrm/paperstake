@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 
+const apiUrl = import.meta.env.VITE_BACKEND_URL;
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
-      const response = await fetch('http://localhost:8000/api/leaderboard/');
-      const data = await response.json();
-      setLeaderboard(data);
-    };
+          const response = await fetch(`${apiUrl}/api/leaderboard/`);
+          const data = await response.json();
+          setLeaderboard(data);
+        };
 
     fetchLeaderboard();
   }, []);
