@@ -1,8 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const apiUrl = import.meta.env.VITE_BACKEND_URL;
-
 const RegisterPage = () => {
     const [email, setEmail] = useState('');
     const [username, setUsername] = useState('');
@@ -11,7 +9,7 @@ const RegisterPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const response = await fetch(`${apiUrl}/api/register/`, {
+        const response = await fetch('http://localhost:8000/api/register/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
